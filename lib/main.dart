@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -11,54 +13,54 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Niklas erste FlutterApp'),
+      home: SeiteVonNiklas(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class SeiteVonNiklas extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SeiteVonNiklasState createState() => _SeiteVonNiklasState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _SeiteVonNiklasState extends State<SeiteVonNiklas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Seite von Niklas"),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            Image.network("https://www.google.de/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwi-5vSXkrDlAhWR66QKHUEBB4MQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DpWkzec7OfVo&psig=AOvVaw0e7OQFr-enbiNs6vHWNL_3&ust=1571843145946069"),
+            reiheMachen("Name:", "Niklas"),
+            reiheMachen("Alter:", "21"),
+            reiheMachen("Wohnort", "Petersberg")
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget reiheMachen(attribut, wert) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Text(
+            attribut,
+            style: TextStyle(
+              fontSize: 30,
+            ),
+          ),
+          Text(
+            wert,
+            style: TextStyle(fontSize: 30),
+          ),
+        ],
+      ),
     );
   }
 }
