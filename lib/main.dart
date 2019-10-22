@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Niklas erste Flutter-App'),
+      home: MyHomePage(title: 'Niklas erste FlutterApp'),
     );
   }
 }
